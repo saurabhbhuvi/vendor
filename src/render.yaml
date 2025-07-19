@@ -1,0 +1,23 @@
+services:
+  - type: static
+    name: vendor-panel
+    env: static
+    repo: https://github.com/saurabhbhuvi/vendor
+    branch: main
+    buildCommand: >
+      corepack enable &&
+      corepack prepare yarn@3.2.1 --activate &&
+      yarn install &&
+      yarn build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_MEDUSA_BACKEND_URL
+        value: https://new-2-8tx0.onrender.com
+      - key: VITE_MEDUSA_STOREFRONT_URL
+        value: https://ecom-storefront-75w3.onrender.com
+      - key: VITE_MEDUSA_BASE
+        value: /
+      - key: VITE_DISABLE_SELLERS_REGISTRATION
+        value: false
+      - key: VITE_TALK_JS_APP_ID
+        value: ""
